@@ -65,7 +65,6 @@ class ShitjaView(generics.ListAPIView):
     
     def get_queryset(self):
         game = self.request.query_params.get('ndeshja', None)
-
         queryset = Shitja.objects.filter(ndeshja__id=game)
         return queryset
 
@@ -102,24 +101,8 @@ class UpdateUlsetView(APIView):
         return Response({"message":"update finished!"})
 
 
-# class UpdateUlsetView(generics.UpdateAPIView):
-#     queryset = Ulset.objects.all()
-#     serializer_class = UlsetSerializer
-
-#     def update(self, request, *args, **kwargs):
-#         instance = self.get_object()
-#         instance.statusi = False
-#         instance.save()
-
-#         serializer = self.get_serializer(instance)
-#         serializer.is_valid(raise_exception=True)
-#         self.perform_update(serializer)
-#         return Response(serializer.data)
-
-
 
 class UlsetRegjionView(generics.ListAPIView):
-    # queryset = Ulset.objects.all()
     serializer_class = UlsetRegjionSerializer
     permission_classes = (CustomDjangoModelPermissions,)
     
