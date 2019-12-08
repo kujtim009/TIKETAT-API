@@ -46,7 +46,7 @@ class NdeshjetSerializer(serializers.ModelSerializer):
 class ShitjaInsertSerializer(serializers.ModelSerializer):
     class Meta:
         model = Shitja
-        fields = ('fatura', 'ndeshja', 'ulsa')
+        fields = ('fatura', 'ndeshja', 'ulsa', 'cmimi')
         # depth = 2
 
 

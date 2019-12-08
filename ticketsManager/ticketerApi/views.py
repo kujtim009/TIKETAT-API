@@ -128,7 +128,7 @@ class ShitjaInsertView(APIView):
     queryset = Shitja.objects.filter(ulsa = 6872)
     def post(self, request):
         # queryset = Ulset.objects.all()
-        print(request.data)
+        print("insertTickets: ", request.data)
         serializer_class = ShitjaInsertSerializer(data = request.data, many=True, partial=True)
         if serializer_class.is_valid():
             serializer_class.save()

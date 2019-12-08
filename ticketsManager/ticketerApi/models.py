@@ -69,8 +69,8 @@ class Shitja(models.Model):
     fatura = models.CharField(max_length=10)
     ndeshja = models.ForeignKey(Ndeshjet, on_delete=models.CASCADE)
     ulsa = models.ForeignKey(Ulset, on_delete=models.CASCADE)
-
-    @property
-    def cmimi(self):
-        queryset = Cmimet.objects.filter(regjioni=self.ulsa.regjioni, reshti=self.ulsa.reshti)
-        return queryset[0].cmimi
+    cmimi = models.CharField(max_length=10, default=0, blank=True)
+    # @property
+    # def cmimi(self):
+    #     queryset = Cmimet.objects.filter(regjioni=self.ulsa.regjioni, reshti=self.ulsa.reshti)
+    #     return queryset[0].cmimi
